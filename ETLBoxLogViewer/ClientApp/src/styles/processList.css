@@ -1,0 +1,11 @@
+﻿.expandbutton {
+    font-size: 1em;    
+}
+
+.processinformation .row:nth-child(even) {
+    background-color: #dcdcdc;
+}
+
+
+
+

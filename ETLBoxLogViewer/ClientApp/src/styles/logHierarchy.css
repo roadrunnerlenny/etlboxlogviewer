@@ -1,0 +1,36 @@
+﻿.node rect {
+    stroke: #DDDDDD;
+    stroke-width: 1px;
+}
+
+.branch {
+    cursor: pointer;
+    fill: #e9e9e9;
+}
+
+.leaf {
+    fill: #FFFFFF;
+}
+
+.branchwarn {
+    cursor: pointer;
+    fill: #fff5cd;
+}
+
+.brancherror {
+    cursor: pointer;
+    fill: #ffb491;
+}
+
+.leafwarn {
+    fill: #fffb9f;
+}
+
+.leaferror {
+    fill: #ff7d00;
+}
+
+.node text {
+    font: 10px sans-serif;
+    pointer-events: none;
+}
