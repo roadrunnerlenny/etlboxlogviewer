@@ -9,8 +9,7 @@ using Newtonsoft.Json;
 namespace ETLBoxLogViewer.Controllers {
     [Route("api/[controller]")]
     public class DemoProcessController : Controller {
-
-        int RequestCounter { get; set; } = 0;
+        
         [HttpGet("[action]")]
         public JsonResult GetDemoProcessList() {
             RunETLDemoProcess();
@@ -40,13 +39,14 @@ namespace ETLBoxLogViewer.Controllers {
             EndLoadProcessTask.End("Everything successful");
         }
 
-      
+
+        static int RequestCounter { get; set; } = 0;
 
         [HttpGet("[action]")]
         public JsonResult GetStaticDemoProcessList() {
-
-            var result = JsonHelper.ConvertStringToJson(demoProcessList[0]);
             RequestCounter++;
+            var result = JsonHelper.ConvertStringToJson(demoProcessList[RequestCounter%2]);
+            
             return result;
 
         }
@@ -67,7 +67,38 @@ namespace ETLBoxLogViewer.Controllers {
     ""isFinished"": true,
     ""isTransferCompleted"": true
   }
-]" };
+]",
+@"[
+  {
+    ""loadProcessKey"": 1,
+    ""startDate"": ""2018-11-16T14:12:27.613"",
+    ""transferCompletedDate"": ""2018-11-16T14:12:27.623"",
+    ""endDate"": ""2018-11-16T14:12:27.63"",
+    ""processName"": ""Process 1"",
+    ""startMessage"": ""Start Message 1"",
+    ""isRunning"": false,
+    ""endMessage"": ""Everything successful"",
+    ""wasSuccessful"": true,
+    ""wasAborted"": false,
+    ""isFinished"": true,
+    ""isTransferCompleted"": true
+  },
+  {
+    ""loadProcessKey"": 2,
+    ""startDate"": ""2018-11-17T13:12:38.345"",
+    ""transferCompletedDate"": """",
+    ""endDate"": """",
+    ""processName"": ""Process 2"",
+    ""startMessage"": """",
+    ""isRunning"": true,
+    ""endMessage"": """",
+    ""wasSuccessful"": false,
+    ""wasAborted"": false,
+    ""isFinished"": false,
+    ""isTransferCompleted"": false
+  }
+]"
+        };
 
 
  

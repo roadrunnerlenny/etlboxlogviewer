@@ -1,5 +1,7 @@
 ﻿import React, { Component } from 'react';
+import { PageHeader } from 'react-bootstrap';
 import { LogHierarchyContainer } from '../containers/LogHierarchyContainer';
+
 
 export class ProcessLog extends Component {
     constructor(props) {
@@ -23,6 +25,10 @@ export class ProcessLog extends Component {
             if (this.props.processLog.children) {
                 return (
                     <div>
+                        <PageHeader>
+                            Details for Load Process 
+                        </PageHeader>
+                        
                         <LogHierarchyContainer />
                     </div>
                 );

@@ -1,6 +1,6 @@
 ﻿import { connect } from 'react-redux'
 import { ProcessOverview } from "../components/ProcessOverview"
-import { fetchProcessList } from "../store/processList/thunks";
+import { fetchProcessListPeriodically, stopFetchingProcessListPeriodically } from "../store/processList/thunks";
 
 
 const mapStateToProps = state => {
@@ -11,7 +11,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onRefresh: () => dispatch(fetchProcessList()),        
+        onLoad: () => dispatch(fetchProcessListPeriodically()),
+        onUnload: () => dispatch(stopFetchingProcessListPeriodically())
     }
 }
 

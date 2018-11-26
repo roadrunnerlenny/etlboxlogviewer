@@ -18,6 +18,7 @@ export function fetchProcessLog(dispatch, getState, loadProcessKey) {
 
 export function fetchProcessLogPeriodically(loadProcessKey) {
     return function (dispatch, getState) {
+        fetchProcessLog(dispatch, getState, loadProcessKey)();
         if (timer) clearInterval(timer);
         timer = setInterval(fetchProcessLog(dispatch, getState, loadProcessKey), 5000);
     }
