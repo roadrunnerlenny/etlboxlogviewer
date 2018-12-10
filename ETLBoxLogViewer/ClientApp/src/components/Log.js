@@ -1,9 +1,10 @@
 ﻿import React, { Component } from 'react';
-import { PageHeader } from 'react-bootstrap';
+import { PageHeader, Button, ButtonGroup } from 'react-bootstrap';
 import { LogHierarchyContainer } from '../containers/LogHierarchyContainer';
+import '../styles/log.css'
 
 
-export class ProcessLog extends Component {
+export class Log extends Component {
     constructor(props) {
         super(props);
 
@@ -28,7 +29,11 @@ export class ProcessLog extends Component {
                         <PageHeader>
                             Details for Load Process 
                         </PageHeader>
-                        
+
+                        <ButtonGroup className="collapseExpandGroup">
+                            <Button onClick={() => this.props.onCollapse()}>Collapse all</Button>
+                            <Button onClick={() => this.props.onExpand()}>Expand all</Button>
+                        </ButtonGroup>
                         <LogHierarchyContainer />
                     </div>
                 );

@@ -145,12 +145,13 @@ export class IndentedTree {
             .attr("dy", 15)
             .text(function (d) {
                 return "#" + d.data.logKey
-                    + " | " + d.data.taskType
-                    + " | " + d.data.stage
+                    + (d.data.taskType ? " | " + d.data.taskType : "")
+                    + (d.data.stage  ? " | " + d.data.stage : "")
+                    + (d.data.source ? " | " + d.data.source : "")
                     + " | " + d.data.level
-                    + " | " + d.data.message
+                    + (d.data.message ? " | " + d.data.message : "")
                     + " | " + d.data.startDate
-                    //+ " | " + calcDuration(d.data.startDate, d.data.endDate)
+                    + " | " + d.data.endDate
                     + (d.childrencount > 0 ? " | " + d.childrencount + " more..." : "");
             })
             ;

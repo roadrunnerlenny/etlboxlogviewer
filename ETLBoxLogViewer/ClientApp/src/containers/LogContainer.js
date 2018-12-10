@@ -1,7 +1,7 @@
 ﻿import { connect } from 'react-redux'
-import { ProcessLog } from "../components/ProcessLog"
+import { Log } from "../components/Log"
 import { fetchProcessLogPeriodically, stopFetchingProcessLogPeriodically } from "../store/processLog/thunks";
-
+import { requestCollapseProcessHierarchy, requestExpandProcessHierarchy } from "../store/logHierarchy/actions"
 
 const mapStateToProps = state => {
     return {
@@ -12,13 +12,15 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onLoad: (loadProcessKey) => dispatch(fetchProcessLogPeriodically(loadProcessKey)),        
-        onUnload: () => dispatch(stopFetchingProcessLogPeriodically())
+        onUnload: () => dispatch(stopFetchingProcessLogPeriodically()),
+        onExpand: () => dispatch(requestExpandProcessHierarchy()),
+        onCollapse: () => dispatch(requestCollapseProcessHierarchy())
     }
 }
 
-export const ProcessLogContainer = connect(
+export const LogContainer = connect(
     mapStateToProps,
     mapDispatchToProps
-)(ProcessLog);
+)(Log);
 
 

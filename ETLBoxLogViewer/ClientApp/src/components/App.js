@@ -3,7 +3,7 @@ import { Route } from 'react-router';
 import { Layout } from './Layout';
 import { Home } from './Home';
 import { ProcessOverviewContainer } from '../containers/ProcessOverviewContainer'
-import { ProcessLogContainer } from '../containers/ProcessLogContainer'
+import { LogContainer } from '../containers/LogContainer'
 
 export class App extends Component {
   displayName = App.name
@@ -13,7 +13,7 @@ export class App extends Component {
       <Layout>
         <Route exact path='/' component={Home} />
         <Route path='/overview' component={ProcessOverviewContainer} />        
-        <Route path='/log' component={ProcessLogContainer} />        
+        <Route path='/log' component={LogContainer} />        
       </Layout>
     );
   }
