@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ALE.ETLBox;
 using Newtonsoft.Json;
+using ALE.ETLBox.Logging;
 
 namespace ETLBoxLogViewer.Controllers {
     [Route("api/[controller]")]
